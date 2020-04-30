@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>mesh matrix demo - thingy edition</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/BigInteger.min.js"></script>
+    <script src="js/crypto-js-ext/cryptojs-aes.min.js"></script>
+    <script src="js/crypto-js-ext/all.min.js"></script>
+    <script src="js/asmcrypto.all.js"></script>
+    <script src="js/aes_cmac_adapter.js"></script>
+    <script src="js/crypto.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/demo.js"></script>
+</head>
+
+<body id="demo_page" onload="app.initialize();app.onOffTab();highlightWholeGrid()">
+
+    <!-- MAIN PAGE -->
+    <div>
+        <table>
+            <tr>
+                <td class="half_width">
+                    <button id="btn_scan" class="shallow_button">Scan</button>
+                </td>
+                <td class="half_width">
+                    <button id="btn_connection" class="shallow_button">Connect</button>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="centred_row">
+                <td>
+                    <div id="bluetooth_status" class="centred_row bluetooth_status_text">No device selected</div>
+                </td>
+                <td>
+                    <div id="selected_device" class="centred_row bluetooth_status_text"></div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="no_border">
+            <tr>
+                <td class="half_width top_aligned">
+                    <div class="whole-grid" id="whole-grid">
+                        <div class="panel1" id="panel1">
+                            <div class="blank_cell_blue"></div>
+                            <div class="col_selector" id="C1_TOP"></div>
+                            <div class="col_selector" id="C2_TOP"></div>
+                            <div class="col_selector" id="C3_TOP"></div>
+                            <div class="col_selector" id="C4_TOP"></div>
+                            <div class="row_selector" id="R1_LEFT"></div>
+                            <div class="node" id="NODE_1">1</div>
+                            <div class="node" id="NODE_2">2</div>
+                            <div class="node" id="NODE_3">3</div>
+                            <div class="node" id="NODE_4">4</div>
+                            <div class="row_selector" id="R2_LEFT"></div>
+                            <div class="node" id="NODE_5">5</div>
+                            <div class="node" id="NODE_6">6</div>
+                            <div class="node" id="NODE_7">7</div>
+                            <div class="node" id="NODE_8">8</div>
+                            <div class="row_selector" id="R3_LEFT"></div>
+                            <div class="node" id="NODE_9">9</div>
+                            <div class="node" id="NODE_10">10</div>
+                            <div class="node" id="NODE_11">11</div>
+                            <div class="node" id="NODE_12">12</div>
+                            <div class="row_selector" id="R4_LEFT"></div>
+                            <div class="node" id="NODE_13">13</div>
+                            <div class="node" id="NODE_14">14</div>
+                            <div class="node" id="NODE_15">15</div>
+                            <div class="node" id="NODE_16">16</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="half_width top_aligned">
+                    <div>
+                        <table class="no_border_spaced">
+                            <tr>
+                                <td colspan="4">
+                                    <div class="status" id="message">&nbsp;</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label half_width" colspan="2">
+                                </td>
+                                <td class="label quarter_width">
+                                    SRC
+                                </td>
+                                <td class="label quarter_width">
+                                    DST
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label half_width" colspan="2">
+                                    <b>Addresses</b>
+                                </td>
+                                <td class="label quarter_width">
+                                    <input type="text" class="black_data" id="src" maxlength="4" size="4" value="1234">
+                                </td>
+                                <td class="label quarter_width">
+                                    <input type="text" class="black_data" id="dst" maxlength="4" size="4" value="FFFF">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    &nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="label half_width" colspan="2">
+                                    <b>SEQ</b>
+                                </td>
+                                <td class="data quarter_width">
+                                    <input type="text" class="black_data" id="seq" maxlength="6" size="6" value="FFFF">
+                                </td>
+                                <td class="label quarter_width">
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    &nbsp;
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="label" colspan="4">
+                                    Message Types
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="half_width" colspan="2">
+                                    <button id="btn_on_off" class="msg_type_button" />ON/OFF</button>
+                                </td>
+                                <td class="half_width" colspan="2">
+                                    <button id="btn_colour" class="msg_type_button" />COLOUR</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    opcode:
+                                </td>
+                                <td class="data" id="opcode">8203
+                                </td>
+                                <td class="label">
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+
+                            <tr id="generic_onoff_params_onoff" hidden="true">
+                                <td>On/Off</td>
+                                <td>
+                                    <img id="btn_on" src="images/button_on.png" />
+                                </td>
+                                <td>
+                                    <img id="btn_off" src="images/button_off.png" />
+                                </td>
+                                <td></td>
+                            </tr>
+
+                            <tr id="colour_controls" hidden="true">
+                                <td class="full_width" colspan="4">
+                                    <div class="colour_grid" id="colour_grid">
+                                        <div class="white_square" id="colour_1"></div>
+                                        <div class="red_square" id="colour_2"></div>
+                                        <div class="green_square" id="colour_3"></div>
+                                        <div class="blue_square" id="colour_4"></div>
+                                        <div class="yellow_square" id="colour_5"></div>
+                                        <div class="cyan_square" id="colour_6"></div>
+                                        <div class="magenta_square" id="colour_7"></div>
+                                        <div class="black_square" id="colour_8"></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="4">
+                                    <button id="btn_submit2" class="full_width_button">Submit</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="4">
+                                    &nbsp;
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table id="access_opcode">
+            <tr>
+                <td>
+                    <div>PDU received:</div>
+                </td>
+                <td colspan="2">
+                    <div class="green_text" id="pdu_received"></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div class="label">TransMIC (32 bits - unsegmented)</div>
+        <div class="data" id="trans_mic">----</div>
+
+        <div id="hdg_access_pdu" class="label">Access Payload</div>
+        <div id="hdg_access_payload_hex" class="data">0x00</div>
+
+        <div class="label">NetMIC (32 or 64 bits)</div>
+        <div class="data" id="net_mic">----</div>
+
+        <div class="label" id="hdg_network_pdu">Network PDU</div>
+        <div id="network_pdu_hex" class="data">0x00</div>
+
+        <div class="label" id="hdg_proxy_pdu">Proxy PDU</div>
+        <div id="proxy_pdu_hex" class="data">0x00</div>
+
+
+    </div>
+
+    <div id="sar_selection" hidden="true"></div>
+    <div id="msg_type" hidden="true"></div>
+    <div id="netkey" hidden="true"></div>
+    <div id="appkey" hidden="true"></div>
+    <div id="devkey" hidden="true"></div>
+    <div id="iv_index" hidden="true"></div>
+    <div id="ttl" hidden="true"></div>
+    <div id="mtu" hidden="true"></div>
+    <div id="nid" hidden="true"></div>
+    <div id="aid" hidden="true"></div>
+    <div id="encryption_key" hidden="true"></div>
+    <div id="privacy_key" hidden="true"></div>
+    <div id="network_id" hidden="true"></div>
+    <div id="ivi" hidden="true"></div>
+    <div id="access_payload_hex" hidden="true"></div>
+    <div id="access_payload_section" hidden="true"></div>
+    <input type="text" class="arg" id="trans_time_hex" onchange="app.onTtChanged()" value="00" hidden="true">
+    <select id="opcode_selection" class="field" hidden="true">
+    </select>
+
+</body>
+
+</html>

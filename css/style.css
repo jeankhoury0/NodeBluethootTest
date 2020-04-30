@@ -1,0 +1,448 @@
+html,
+body {
+    height: 100%;
+    width: 98%;
+    min-height: 100%;
+    padding: 0;
+    font-size: 1.0vw;
+    font-family: verdana, arial, 'sans serif';
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+select {
+    font-size: 1.5vw;
+    background-color: white;
+    color: black;
+    font-family: "Courier New";
+}
+
+img {
+    padding: 10px;
+}
+
+h1 {
+    font-size: 3.0vw;
+    color: #00ffff;
+}
+
+h2 {
+    font-size: 2.5vw;
+    color: #00ffff;
+}
+
+h3 {
+    font-size: 2.0vw;
+    color: #00ffff;
+}
+
+h4 {
+    font-size: 1.5vw;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.comment {
+    color: white;
+    font-size: 1.0vw;
+    font-style: italic;
+}
+
+.note {
+    color: #0082fc;
+    font-size: 1.0vw;
+    font-style: italic;
+}
+
+.emphasised {
+    color: #0082fc;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.important {
+    color: red;
+}
+
+.fixed {
+    font-family: monospace;
+}
+
+a:link {
+    color: #00FFFF;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #00FFFF;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #00FFFF;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #00FFFF;
+    text-decoration: underline;
+}
+
+.hidden {
+    visibility: false;
+}
+
+.full_screen {
+    width: 0.98vw;
+    height: 1vh;
+}
+
+.full_width {
+    width: 100%;
+}
+
+.std_button {
+    background-color: #0082fc;
+    border: none;
+    color: white;
+    padding: 1vw 1vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.0vw;
+    width: 80%;
+    cursor: pointer;
+    margin-bottom: 1vw;
+    margin-top: 2vw;
+    outline: none;
+}
+
+.full_width_button {
+    background-color: #0082fc;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.0vw;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+}
+
+.shallow_button {
+    background-color: #0082fc;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 90%;
+    cursor: pointer;
+    outline: none;
+}
+
+.msg_type_button {
+    background-color: #0082fc;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.5vw;
+}
+
+.tiny_button {
+    background-color: #0082fc;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.75vw;
+}
+
+table {
+    width: 100%;
+    border-spacing: 2px;
+    border: 1px solid white;
+}
+
+tr,
+td {
+    height: 0px;
+}
+
+.centred_row {
+    vertical-align: center;
+    height: 100%
+}
+
+.test_cell {
+    width: 50%;
+    overflow: hidden;
+    vertical-align: top;
+    background-color: #000000;
+    padding-left: 10px;
+}
+
+.test_label {
+    width: 50%;
+    overflow: hidden;
+    vertical-align: center;
+}
+
+.arg {
+    font-size: 1.0vw;
+    background-color: white;
+    color: black;
+    font-family: "Courier New";
+}
+
+.result {
+    background-color: grey;
+    color: white;
+    font-family: "Courier New";
+}
+
+td textarea {
+    width: 100%;
+    height: 90%;
+    font-family: "Courier New";
+}
+
+.white_bg {
+    background-color: #ffffff;
+}
+
+.white_bg {
+    background-color: #ffffff;
+}
+
+.half_width {
+    width: 50%;
+}
+
+.third_width {
+    width: 33%;
+}
+
+.quarter_width {
+    width: 25%;
+}
+
+.col1 {
+    width: 33%;
+}
+
+.col2 {
+    width: 33%;
+}
+
+.col3 {
+    width: 34%;
+}
+
+.field {
+    font-size: 1.0vw;
+}
+
+.indent1 {
+    padding-left: 5px;
+}
+
+.indent2 {
+    padding-left: 10px;
+}
+
+.indent3 {
+    padding-left: 15px;
+}
+
+.green_text {
+    color: #00ff00;
+}
+
+.whole-grid {
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #F0F0F0;
+    padding: 30px;
+    margin-top: 50px;
+    height: 600px;
+    width: 600px;
+}
+
+.colour_grid {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        background-color: #000000;
+        border: 5px solid rgba(0, 0, 0, 0.8);
+        padding: 0px;
+        text-align: center;
+        height: 200px;
+        width: 600px;
+    }
+
+.panel1 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: #0000FF;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.node {
+    background-color: #000000;
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    font-size: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.col_selector {
+    background-color: #505050;
+    border: 1px dashed #FF0000;
+    padding: 5px;
+}
+
+.row_selector {
+    background-color: darkgray;
+    border: 1px dashed #FF0000;
+    padding: 5px;
+}
+
+.blank_cell_green {
+    background-color: #00FF00;
+}
+
+.blank_cell_blue {
+    background-color: #0000FF;
+}
+
+.white_square {
+    background-color: #FFFFFF;
+    border: 3px solid #808080;
+    padding: 5px;
+    margin: 2px;
+}
+
+.red_square {
+    background-color: #FF0000;
+    border: 3px solid #808080;
+    padding: 5px;
+    margin: 2px;
+}
+
+.green_square {
+    background-color: #00FF00;
+    border: 3px solid #808080;
+    padding: 5px;
+    margin: 2px;
+}
+
+.blue_square {
+    background-color: #0000FF;
+    border: 3px solid #808080;
+    padding: 5px;
+    margin: 2px;
+}
+
+.yellow_square {
+    background-color: #FFFF00;
+    border: 3px solid #808080;
+    padding: 5px;
+    margin: 2px;
+}
+
+.cyan_square {
+    background-color: #00FFFF;
+    border: 3px solid #808080;
+    padding: 5px;
+    margin: 2px;
+}
+
+.magenta_square {
+    background-color: #FF00FF;
+    border: 3px solid #808080;
+    padding: 5px;
+    margin: 2px;
+}
+
+.black_square {
+    background-color: #000000;
+    border: 3px solid #808080;
+    padding: 5px;
+}
+
+.no_border {
+    width: 100%;
+    border-spacing: 1px;
+    border: 0px;
+}
+
+.no_border_spaced {
+    width: 100%;
+    border-spacing: 20px;
+    border: 0px;
+}
+
+.label {
+    color: #FFFFFF;
+    font-size: 1.0vw;
+    font-weight: bold;
+}
+
+.data {
+    color: #ffffff;
+    font-size: 1.0vw;
+}
+
+.black_data {
+    color: #000000;
+    font-size: 1.0vw;
+}
+
+.level_selector {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    background-color: #000000;
+    border: 0px solid #ffffff;
+    padding: 2px;
+    text-align: center;
+}
+
+.level_selection {
+    background-color: #000000;
+    border: 1px solid #FFFFFF;
+    padding: 2px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.level_selected {
+    background-color: #000000;
+    color: #ff0000;
+    border: 0px solid #FFFFFF;
+    padding: 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.bluetooth_status_text {
+    font-size: 1.5vh;
+}
+
+.top_aligned {
+    vertical-align: top;
+}
